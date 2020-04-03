@@ -13,13 +13,11 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-
 static const size_t MAX_FRAME_SIZE = 4100;
 static const int PORT = 1234;
 
 static device_t tcp_device;
 static int listen_fd = -1;
-
 
 static void __sleep(unsigned long ms) {
     struct timeval tv;
@@ -87,7 +85,7 @@ static int tcp_server_close(device_t *dev) {
 static ssize_t tcp_server_recv(device_t *dev) {
     unsigned char buf[MAX_FRAME_SIZE];
     ssize_t n_read;
-    char *test_buf="server test";
+    char *test_buf = "server test";
     if ((dev->recv_cnt = read(dev->fd, dev->recv_buf, MAX_FRAME_SIZE)) < 0) /* error */
         return -1;
     //TODO:code the protocol recv here(may have start or end flag)
