@@ -1,7 +1,7 @@
 #include <pthread.h>
-#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <unistd.h>
 
 #include "keyboard.h"
@@ -59,7 +59,7 @@ static void *test_thread_a(void *arg) {
     while (!quit) {
         //在这里添加需要执行的代码
         fprintf(stderr, "%s(): thread is running!\n", __FUNCTION__);
-        sleep(2);
+        sleep(1);
     }
 
     fprintf(stderr, "%s(): thread terminated!\n", __FUNCTION__);
@@ -100,5 +100,4 @@ int main(int argc, char **argv) {
 
     close_keyboard();
     exit_thread();
-    return 0;
 }
